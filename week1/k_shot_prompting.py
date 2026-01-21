@@ -7,7 +7,46 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """You are a string reversal expert. Your task is to completely reverse the letter order of words.
+
+Here are some examples:
+
+Example 1:
+Input: hello
+Output: olleh
+
+Example 2:
+Input: world
+Output: dlrow
+
+Example 3:
+Input: python
+Output: nohtyp
+
+Example 4:
+Input: abc
+Output: cba
+
+Example 5:
+Input: websocket
+Output: tekcosbew
+
+Example 6:
+Input: typescript
+Output: tpircsepyt
+
+Example 7:
+Input: apple
+Output: elppa
+
+Example 8:
+Input: banana
+Output: ananab
+
+Rules:
+- Only output the reversed result in lowercase
+- Do not output any other text
+- Do not add quotation marks"""
 
 USER_PROMPT = """
 Reverse the order of letters in the following word. Only output the reversed word, no other text:
