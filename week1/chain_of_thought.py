@@ -8,7 +8,16 @@ load_dotenv()
 NUM_RUNS_TIMES = 5
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """
+You are a math expert. When solving problems, think step by step:
+
+1. Analyze the problem
+2. Break the large problem into small steps
+3. Show every calculation step
+4. Finally give the answer
+
+Format: The last line must be "Answer: <number>"
+"""
 
 
 USER_PROMPT = """
