@@ -15,11 +15,30 @@ Keep the implementation minimal.
 """
 
 # TODO: Fill this in!
-YOUR_REFLEXION_PROMPT = ""
+YOUR_REFLEXION_PROMPT = """
+You are a coding expert. 
+You are given a code context with bug and the a list of debugging informations.
+
+It follow the format:
+{
+    "Code": "function code with bug",
+    "Failures": [
+        "debugging information 1",
+        "debugging information 2",
+        "debugging information 3",
+    ]
+}
+Each failure is a string that describes the failure.
+
+You need to think about why it failed carefully.
+And fix the function step by step.
+Finally, you need to return the fixed function code in a fenced code block.
+"""
 
 
 # Ground-truth test suite used to evaluate generated code
 SPECIALS = set("!@#$%^&*()-_")
+
 TEST_CASES: List[Tuple[str, bool]] = [
     ("Password1!", True),       # valid
     ("password1!", False),      # missing uppercase
@@ -96,7 +115,14 @@ def your_build_reflexion_context(prev_code: str, failures: List[str]) -> str:
 
     Return a string that will be sent as the user content alongside the reflexion system prompt.
     """
-    return ""
+    return f"""
+    Here is the code context with bug and the a list of debugging informations.
+
+    Code:{prev_code}
+    Failures:{'\n'.join(failures)}
+
+    Fix this code step by step.
+    """
 
 
 def apply_reflexion(
