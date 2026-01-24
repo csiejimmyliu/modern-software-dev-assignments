@@ -37,7 +37,20 @@ QUESTION = (
 
 
 # TODO: Fill this in!
-YOUR_SYSTEM_PROMPT = ""
+YOUR_SYSTEM_PROMPT = """
+You are a coding expert.
+You are given a question and a context.
+You need to write function to solve the question.
+You need to use the context to help you solve the question.
+You need to return the function code.
+"""
+
+YOUR_SYSTEM_PROMPT = """
+You are an expert programmer.
+Given a question and context documentation, write a function that solves the question.
+Use only the information provided in the context.
+Output the complete function code in a fenced code block.
+"""
 
 
 # For this simple example
@@ -56,7 +69,7 @@ def YOUR_CONTEXT_PROVIDER(corpus: List[str]) -> List[str]:
 
     For example, return [] to simulate missing context, or [corpus[0]] to include the API docs.
     """
-    return []
+    return [corpus[0]]
 
 
 def make_user_prompt(question: str, context_docs: List[str]) -> str:
