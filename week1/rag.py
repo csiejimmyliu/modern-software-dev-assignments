@@ -38,14 +38,6 @@ QUESTION = (
 
 # TODO: Fill this in!
 YOUR_SYSTEM_PROMPT = """
-You are a coding expert.
-You are given a question and a context.
-You need to write function to solve the question.
-You need to use the context to help you solve the question.
-You need to return the function code.
-"""
-
-YOUR_SYSTEM_PROMPT = """
 You are an expert programmer.
 Given a question and context documentation, write a function that solves the question.
 Use only the information provided in the context.
