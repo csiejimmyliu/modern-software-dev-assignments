@@ -5,6 +5,55 @@ The original assignment can be found [here](https://github.com/mihail911/modern-
 
 
 
+# Note of Slides
+
+## Mon 9/22: [Introduction and how an LLM is made](https://docs.google.com/presentation/d/1zT2Ofy88cajLTLkd7TcuSM4BCELvF9qQdHmlz33i4t0/edit?slide=id.p#slide=id.p)
+
+- Coding with AI agents is not **Vibe Coding!**
+- LLMs are only as good as you are.
+- Read and review **a lot** of code: Learn to discern good from bad code, have a good taste.
+- There are no established software patterns yet, figure out what works for you.
+
+## Fri 9/26: [Power prompting for LLMs](https://docs.google.com/presentation/d/1MIhw8p6TLGdbQ9TcxhXSs5BaPf5d_h77QY70RHNfeGs/edit?slide=id.g37b974b8d4d_0_0#slide=id.g37b974b8d4d_0_0)
+
+Just as moving from assembly to high-level languages was a paradigm shift in how we express logic to machines, prompting is the next evolution — a new layer of abstraction where intent matters more than syntax.
+
+**Zero-Shot Prompting:**  
+Ask the model a question directly without any examples, relying solely on its pretrained knowledge to respond.
+
+**K-Shot Prompting:**  
+Provide K input/output examples in the prompt so the model learns the expected format and reasoning before answering.
+
+**Chain-of-Thought Prompting:**  
+Guide the model to reason step-by-step rather than jumping straight to an answer, useful for multi-step logic tasks.
+- **Multi-Shot CoT:** Include examples that demonstrate reasoning steps, so the model learns to imitate the thought process.
+- **Zero-Shot CoT:** No examples — just add a trigger phrase like "Let's think step by step" to elicit reasoning.
+
+**Self-Consistency Prompting:**  
+Sample the same question multiple times across different reasoning paths, then select the most frequent answer via majority vote to improve reliability and accuracy.
+
+**Retrieval Augmented Generation (RAG):**  
+Before generating a response, retrieve relevant documents from an external knowledge base and inject them into the prompt, allowing the model to answer based on up-to-date or private data while reducing hallucinations.
+
+**Reflexion:**  
+After receiving execution results or feedback, the model reflects on its mistakes and generates an improvement strategy before retrying — forming an "act → evaluate → reflect → act" loop.
+
+### Best Practice
+- Structure prompts clearly (separate role, task, and format). For example, use XML-style tags to organize inputs:
+    ```
+  Here are the logs:
+  <log>
+  LOG MESSAGE
+  </log>
+  and the stack trace:
+  <error>
+  STACK TRACE
+  </error>
+    ```
+- Be explicit about language, tech stack, libraries, and constraints.
+- Assume zero background context — provide complete details as if talking to someone unfamiliar with the topic.
+
+
 # Note of Assignment
 
 ## K-shot Prompting
