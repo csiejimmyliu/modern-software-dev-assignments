@@ -153,6 +153,30 @@ This preference data is then used to **train a reward model**, which takes over 
 **RLHF Downside:** The RL model will find ways to adversarially exploit the reward model — discovering inputs that score highly without being genuinely good. For example, generating ten dots and somehow fooling the reward model into rating it as an excellent poem. Since the reward model is only an approximation of human preference, it will always have blind spots to exploit.
 
 
+## [AI prompt engineering: A deep dive](https://www.youtube.com/watch?v=T9aRN5JkmL8)
+
+It's called engineering because it involves heavy trial and error, deliberate experimentation.
+
+**What Makes a Good Prompt Engineer**
+- Able to describe tasks and concepts with clarity.  
+- Willing to iterate aggressively — sending hundreds of prompts to find the most precise instruction.
+- Anticipates edge cases — thinking about how a prompt behaves when input is missing, malformed, or unexpected
+
+**Practical Tips**  
+- **Be explicit and thorough**  
+Don't assume the model knows what you know. Treat it like a highly capable contractor with zero background context.  
+A useful trick: speak your request out loud and transcribe it. Verbal descriptions tend to be more complete than deliberately typed prompts.
+- **Iterate and observe**  
+Read the model's output carefully, not just for correctness. Pay attention to tone and reasoning — they reveal how to improve the prompt. If the model makes a mistake, ask it why it went wrong and have it suggest how to revise the instruction to prevent it from happening again.
+- **Give the model an out**
+For edge cases, explicitly tell the model what to do when input is uncertain or malformed (e.g. output an "uncertain" label). This improves output quality and helps surface bad inputs early.
+- **Guide reasoning with structure**  
+Use "think step by step" or ask the model to reason before answering — this significantly improves performance on math and logic tasks. Use illustrative examples rather than overly specific ones to keep the model flexible and avoid rigid format mimicry.
+- **Let the model help with prompt engineering**  
+Have the model write prompts for you. Feed it a paper on prompting techniques and ask it to generate templates based on what it read. Similarly, use the model to generate test inputs or draft initial answers — refining from a draft is far easier than starting from scratch.
+- **Respect the model's intelligence**  
+Don't oversimplify. Give the model raw, complex material — dense papers, long documents — and it will generally handle it well without hand-holding.
+
 # Note of Slides
 
 ## Mon 9/22: [Introduction and how an LLM is made](https://docs.google.com/presentation/d/1zT2Ofy88cajLTLkd7TcuSM4BCELvF9qQdHmlz33i4t0/edit?slide=id.p#slide=id.p)
